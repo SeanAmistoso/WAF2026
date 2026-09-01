@@ -42,12 +42,70 @@
             <h5>Description</h5>
 
             <p class="card-text">
-                {{ $location->description }}
-            </p>
+    {{ $location->description }}
+</p>
 
-            <hr>
+<hr>
 
-            <a href="{{ route('locations.edit', $location) }}"
+<h3>Hikes at this location</h3>
+
+@if($location->hikes->count())
+
+    <div class="row">
+
+        @foreach($location->hikes as $hike)
+
+            <div class="col-md-4 mb-3">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            {{ $hike->name }}
+                        </h5>
+
+                        <p class="card-text">
+                            <strong>Difficulty:</strong>
+                            {{ $hike->difficulty }}
+                        </p>
+
+                        <p class="card-text">
+                            <strong>Distance:</strong>
+                            {{ $hike->distance }} km
+                        </p>
+
+                        <p class="card-text">
+                            <strong>Duration:</strong>
+                            {{ $hike->duration }}
+                        </p>
+
+                        <a href="{{ route('hikes.show', $hike) }}"
+                           class="btn btn-success">
+                            View Hike
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        @endforeach
+
+    </div>
+
+@else
+
+    <div class="alert alert-info">
+        No hikes have been added for this location yet.
+    </div>
+
+@endif
+
+<hr>
+
+<a href="{{ route('locations.edit', $location) }}"
                class="btn btn-warning">
                 Edit Location
             </a>

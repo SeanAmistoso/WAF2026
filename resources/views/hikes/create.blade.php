@@ -69,14 +69,22 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Difficulty</label>
 
-            <input type="text"
-                   name="difficulty"
-                   class="form-control"
-                   value="{{ old('difficulty') }}"
-                   placeholder="e.g. Easy, Moderate, Difficult">
-        </div>
+    <label class="form-label">Difficulty</label>
+
+    <select name="difficulty" class="form-select">
+
+        <option value="">Select difficulty</option>
+
+        <option value="Easy">Easy</option>
+
+        <option value="Moderate">Moderate</option>
+
+        <option value="Difficult">Difficult</option>
+
+    </select>
+
+</div>
 
         <div class="mb-3">
             <label class="form-label">Distance (km)</label>

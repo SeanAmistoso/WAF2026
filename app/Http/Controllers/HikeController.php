@@ -27,7 +27,7 @@ class HikeController extends Controller
         $validated = $request->validate([
             'location_id' => 'required|exists:locations,id',
             'name' => 'required|string|max:255',
-            'difficulty' => 'required|string|max:50',
+            'difficulty' => 'required|in:Easy,Moderate,Difficult',
             'distance' => 'required|numeric|min:0',
             'duration' => 'required|string|max:100',
             'description' => 'nullable|string',
@@ -59,7 +59,7 @@ class HikeController extends Controller
         $validated = $request->validate([
             'location_id' => 'required|exists:locations,id',
             'name' => 'required|string|max:255',
-            'difficulty' => 'required|string|max:50',
+            'difficulty' => 'required|in:Easy,Moderate,Difficult',
             'distance' => 'required|numeric|min:0',
             'duration' => 'required|string|max:100',
             'description' => 'nullable|string',

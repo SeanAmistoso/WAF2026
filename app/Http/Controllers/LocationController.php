@@ -35,9 +35,11 @@ class LocationController extends Controller
     }
 
     public function show(Location $location)
-    {
-        return view('locations.show', compact('location'));
-    }
+{
+    $location->load('hikes');
+
+    return view('locations.show', compact('location'));
+}
 
     public function edit(Location $location)
     {

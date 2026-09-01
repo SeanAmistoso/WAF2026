@@ -67,13 +67,29 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Difficulty</label>
 
-            <input type="text"
-                   name="difficulty"
-                   class="form-control"
-                   value="{{ $hike->difficulty }}">
-        </div>
+    <label class="form-label">Difficulty</label>
+
+    <select name="difficulty" class="form-select">
+
+        <option value="Easy" {{ $hike->difficulty == 'Easy' ? 'selected' : '' }}>
+            Easy
+        </option>
+
+        <option value="Moderate" {{ $hike->difficulty == 'Moderate' ? 'selected' : '' }}>
+            Moderate
+        </option>
+
+        <option value="Difficult" {{ $hike->difficulty == 'Difficult' ? 'selected' : '' }}>
+            Difficult
+        </option>
+
+    </select>
+
+</div>
+
+    </select>
+</div>
 
         <div class="mb-3">
             <label class="form-label">Distance (km)</label>
